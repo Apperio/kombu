@@ -70,6 +70,8 @@ class CurlClient(BaseClient):
     def add_request(self, request):
         self._pending.append(request)
         self._process_queue()
+        # Call the timeout check to perform the pycurl request
+        self._timeout_check()
         self._set_timeout(0)
         return request
 
