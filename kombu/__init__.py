@@ -4,13 +4,16 @@ from __future__ import absolute_import, unicode_literals
 import os
 import re
 import sys
+from collections import namedtuple  # noqa
+# Lazy loading.
+# - See werkzeug/__init__.py for the rationale behind this.
+from types import ModuleType  # noqa
 
 if sys.version_info < (2, 7):  # pragma: no cover
     raise Exception('Kombu 4.6 requires Python versions 2.7 or later.')
 
-from collections import namedtuple  # noqa
 
-__version__ = '4.6.11'
+__version__ = '4.6.11.post1'
 __author__ = 'Ask Solem'
 __contact__ = 'auvipy@gmail.com, ask@celeryproject.org'
 __homepage__ = 'https://kombu.readthedocs.io'
@@ -49,9 +52,6 @@ if STATICA_HACK:  # pragma: no cover
         disable_insecure_serializers,
     )
 
-# Lazy loading.
-# - See werkzeug/__init__.py for the rationale behind this.
-from types import ModuleType  # noqa
 
 all_by_module = {
     'kombu.connection': ['Connection', 'BrokerConnection'],
